@@ -103,9 +103,14 @@ export function loadProductsFetch(){
       return new Product(productDetails);
     });
     console.log('load products')   
+  }).catch((error)=>{
+    console.log('unexpected error try agin later')
   });
   return promise;
 }
+
+
+
 
 // loadProductsFetch().then(()=>{
 //   console.log('next step')
@@ -123,6 +128,10 @@ export function loadProducts(fun){
     });
     console.log('load products')
     fun();
+  });
+
+  xhr.addEventListener('error',(error)=>{
+    console.log('unexpected error.try again later')
   });
 
   
